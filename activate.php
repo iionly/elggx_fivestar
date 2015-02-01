@@ -18,8 +18,8 @@ if (!$oldversion) {
         $plugin->save();
     }
     // Set new version
-    elgg_set_plugin_setting('version', '1.10.7', 'elggx_fivestar');
-} else if ($oldversion != '1.10.7') {
+    elgg_set_plugin_setting('version', '1.10.7.1', 'elggx_fivestar');
+} else if ($oldversion != '1.10.7.1') {
     // Set new version
-    elgg_set_plugin_setting('version', '1.10.7', 'elggx_fivestar');
+    elgg_set_plugin_setting('version', '1.10.7.1', 'elggx_fivestar');
 }

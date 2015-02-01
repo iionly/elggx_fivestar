@@ -88,7 +88,6 @@ $ratingText = $vars['ratingTextClass'] ? 'class="' . $vars['ratingTextClass'] . 
                 <input type="radio" name="rate_avg" <?php echo $checked; ?> <?php echo $disabled; ?> value="<?php echo $pps * $i; ?>" />
                 <?php $checked = ''; ?>
         <?php }
-            echo elgg_view();
             echo elgg_view('input/hidden', array('name' => 'id','value' => $guid));
             echo elgg_view('input/securitytoken');
         ?>

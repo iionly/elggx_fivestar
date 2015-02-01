@@ -1,5 +1,5 @@
 Elggx Fivestar plugin for Elgg 1.10
-Latest Version: 1.10.7
+Latest Version: 1.10.7.1
 Released: 2015-02-01
 Contact: iionly@gmx.de
 License: GNU General Public License version 2
@@ -60,6 +60,11 @@ In this case the default css layout of the voting widget is used. Still, you mus
 
 
 Changelog:
+
+1.10.7.1:
+
+- Removal of a line containing an elgg_view() call without arguments left in the code by mistake resulting in an immense number of warnings in the server log.
+
 
 1.10.7:
 
