@@ -87,10 +87,11 @@ $ratingText = $vars['ratingTextClass'] ? 'class="' . $vars['ratingTextClass'] . 
             <?php if (round($rating['rating']) == $i) { $checked = 'checked="checked"'; } ?>
                 <input type="radio" name="rate_avg" <?php echo $checked; ?> <?php echo $disabled; ?> value="<?php echo $pps * $i; ?>" />
                 <?php $checked = ''; ?>
-        <?php } ?>
-            <input type="hidden" name="id" value="<?php echo $guid; ?>" />
-            <input type="hidden" name="__elgg_token" value="<?php echo $token; ?>" />
-            <input type="hidden" name="__elgg_ts" value="<?php echo $ts; ?>" />
+        <?php }
+            echo elgg_view();
+            echo elgg_view('input/hidden', array('name' => 'id','value' => $guid));
+            echo elgg_view('input/securitytoken');
+        ?>
             <input type="submit" value="Rate it!" />
     </form>
     <div class="clearfloat">

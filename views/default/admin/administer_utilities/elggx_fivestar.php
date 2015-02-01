@@ -4,10 +4,6 @@
  * Fivestar settings form
  */
 
-$ts = time ();
-$token = generate_action_token ( $ts );
-$tokenRequest = "&__elgg_token=$token&__elgg_ts=$ts";
-
 ?>
 
 <style>
@@ -110,9 +106,11 @@ $form .= "<br><br>";
 
 $form .= '<br /><h4>'.elgg_echo('elggx_fivestar:settings:view_heading').':</h4><br />';
 $form .= "<p><b>";
-$form .= elgg_view("output/confirmlink", array(
-                   'href' => elgg_get_site_url() . "action/elggx_fivestar/reset?&__elgg_token=$token&__elgg_ts=$ts",
+$form .= elgg_view("output/url", array(
+                   'href' => elgg_get_site_url() . "action/elggx_fivestar/reset",
                    'text' => elgg_echo('elggx_fivestar:settings:defaults'),
+                   'is_action' => true,
+                   'is_trusted' => true,
                    'confirm' => elgg_echo('elggx_fivestar:settings:defaults:confirm')));
 $form .= "</b></p><br />";
 
