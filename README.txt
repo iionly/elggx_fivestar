@@ -1,9 +1,9 @@
 Elggx Fivestar plugin for Elgg 1.10
-Latest Version: 1.10.7.1
-Released: 2015-02-01
+Latest Version: 1.10.8
+Released: 2015-02-08
 Contact: iionly@gmx.de
 License: GNU General Public License version 2
-Copyright: (c) iionly, Billy Gunn
+Copyright: (c) iionly (for Elgg 1.8 onwards), Billy Gunn
 
 
 This plugin will add a voting widget to certain views on your site, for example blogs, pages, bookmarks, files and group discussions. By default the voting widget will display 5 stars but you can configure the number of stars to show. You can also configure if your members should be allowed to change their vote or not.
@@ -60,6 +60,24 @@ In this case the default css layout of the voting widget is used. Still, you mus
 
 
 Changelog:
+
+1.10.8:
+
+- Updated version 1.9.8 for Elgg 1.10.
+
+
+1.9.8:
+
+- Updated version 1.8.8 for Elgg 1.9.
+
+
+1.8.8:
+
+- No longer show the fivestar rating widget for entities within the widget context (This change is to get some kind of consistency with what is shown in widgets and what is not. For example, the entity menu is usually also not shown in widgets.),
+- Make the form id of the displayed rating widgets unique in case the rating widget for the same entity is displayed more than once on the same page,
+- Fix to no longer show a vertical space between the fivestar rating widget and the categories output if the Categories plugin is used (vertical space is avoided by overriding the output/categories view with a modified version),
+- Modifying code to be no longer depending on usage of private Elgg API function generate_action_token().
+
 
 1.10.7.1:
 
