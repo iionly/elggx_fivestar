@@ -16,7 +16,7 @@ return array(
 	'elggx_fivestar:numstars' => 'Le nombre d\'étoiles à afficher? ',
 	'elggx_fivestar:rating_saved' => 'Note enregistrée',
 	'elggx_fivestar:settings:view_heading' => 'Configuration des Vues',
-	'elggx_fivestar:settings:change_cancel' => 'Autoriser les utilisateurs à modifier ou annuler leurs votes? ',
+	'elggx_fivestar:settings:change_cancel' => 'Autoriser les utilisateurs à modifier leurs votes? ',
 	'elggx_fivestar:settings:yes' => 'Oui',
 	'elggx_fivestar:settings:no' => 'Non',
 	'elggx_fivestar:settings:add_view' => 'Ajouter une Vue',

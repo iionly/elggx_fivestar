@@ -1,22 +1,17 @@
 <?php
 
-if (!function_exists('str_get_html')) {
-	include dirname(__FILE__) . "/lib/simple_html_dom.php";
-}
-
 elgg_register_event_handler('init','system','elggx_fivestar_init');
 
 function elggx_fivestar_init() {
+	if (!function_exists('str_get_html')) {
+		elgg_register_library("fivestar_simple_html_dom", dirname(__FILE__) . "/lib/simple_html_dom.php");
+		elgg_load_library("fivestar_simple_html_dom");
+	}
+
+	elgg_extend_view('css/elgg', 'elggx_fivestar/css');
+	elgg_extend_view('css/admin', 'elggx_fivestar/css');
 
 	elggx_fivestar_settings();
-
-	$css_rating = elgg_get_simplecache_url('css', 'basic');
-	elgg_register_simplecache_view('css/basic');
-	elgg_register_css('fivestar_css', $css_rating);
-
-	$js_rating = elgg_get_simplecache_url('js', 'elggx_fivestar/ui.stars.min');
-	elgg_register_simplecache_view('js/elggx_fivestar/ui.stars.min');
-	elgg_register_js('fivestar', $js_rating);
 
 	elgg_register_plugin_hook_handler('view', 'all', 'elggx_fivestar_view');
 

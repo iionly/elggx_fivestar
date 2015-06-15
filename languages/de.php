@@ -13,7 +13,7 @@ return array(
 	'elggx_fivestar:numstars' => 'Die Anzahl der Sterne, die angezeigt werden sollen? ',
 	'elggx_fivestar:rating_saved' => 'Deine Stimmabgabe wurde registriert.',
 	'elggx_fivestar:settings:view_heading' => 'Views-Konfiguration',
-	'elggx_fivestar:settings:change_cancel' => 'Den Benutzern erlauben, ihre Stimmabgabe zu ändern oder zurückzuziehen? ',
+	'elggx_fivestar:settings:change_cancel' => 'Den Benutzern erlauben, ihre Stimmabgabe zu ändern? ',
 	'elggx_fivestar:settings:yes' => 'Ja',
 	'elggx_fivestar:settings:no' => 'Nein',
 	'elggx_fivestar:settings:add_view'  => 'Eine View hinzufügen',

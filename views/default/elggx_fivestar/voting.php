@@ -1,51 +1,6 @@
-<script type="text/javascript">
-	function fivestar(guid, unique_id) {
-		$("#fivestar-form-"+guid+"-"+unique_id).find('input[type=submit]').hide();
-
-		// Create stars for: Rate this
-		$("#fivestar-form-"+guid+"-"+unique_id).stars( {
-			cancelShow: 0,
-			cancelValue: 0,
-			captionEl: $("#caption"),
-			callback: function(ui, type, value) {
-				// Disable Stars while AJAX connection is active
-				ui.disable();
-
-				// Display message to the user at the begining of request
-				$("#fivestar-messages-"+guid+"-"+unique_id).text("<?php echo elgg_echo('saving'); ?>").stop().css("opacity", 1).fadeIn(30);
-				var url = elgg.security.addToken("<?php echo elgg_get_site_url();?>action/elggx_fivestar/rate");
-				$.post(url, {id: guid, vote: value}, function(db) {
-					// Select stars from "Average rating" control to match the returned average rating value
-					$("#fivestar-form-"+guid+"-"+unique_id).stars("select", Math.round(db.rating));
-
-					// Update other text controls...
-					$("#fivestar-votes-"+guid+"-"+unique_id).text(db.votes);
-					$("#fivestar-rating-"+guid+"-"+unique_id).text(db.rating);
-
-					// Display confirmation message to the user
-					if (db.msg) {
-						$("#fivestar-messages-"+guid+"-"+unique_id).text(db.msg).stop().css("opacity", 1).fadeIn(30);
-					} else {
-						$("#fivestar-messages-"+guid+"-"+unique_id).text("<?php echo elgg_echo('elggx_fivestar:rating_saved'); ?>").stop().css("opacity", 1).fadeIn(30);
-					}
-
-					// Hide confirmation message and enable stars for "Rate this" control, after 2 sec...
-					setTimeout(function() {
-						$("#fivestar-messages-"+guid+"-"+unique_id).fadeOut(1000, function(){ui.enable()})
-					}, 2000);
-				}, "json");
-			}
-		});
-
-		// Create element to use for confirmation messages
-		$('<div class="fivestar-messages" id="fivestar-messages-'+guid+"-"+unique_id+'"/>').appendTo("#fivestar-form-"+guid+"-"+unique_id);
-	};
-</script>
-
 <?php
 
-elgg_load_css('fivestar_css');
-elgg_load_js('fivestar');
+elgg_require_js('elggx_fivestar/elggx_fivestar_voting');
 
 $guid = isset($vars['fivestar_guid']) ? $vars['fivestar_guid'] : $vars['entity']->guid;
 
@@ -78,7 +33,7 @@ $outerId = $vars['outerId'] ? 'id="' . $vars['outerId'] . '"' : '';
 $ratingText = $vars['ratingTextClass'] ? 'class="' . $vars['ratingTextClass'] . '"' : '';
 ?>
 
-<div <?php echo $outerId; ?> class="fivestar-ratings-<?php echo $guid."-".$unique_id . $subclass; ?>">
+<div <?php echo $outerId; ?> class="fivestar-ratings <?php echo $subclass;?>" data-guid="<?php echo $guid;?>" data-uniqueid="<?php echo $unique_id;?>">
 	<form id="fivestar-form-<?php echo $guid."-".$unique_id; ?>" style="width: 200px" action="<?php echo elgg_get_site_url(); ?>action/elggx_fivestar/rate" method="post">
 		<?php for ($i = 1; $i <= $stars; $i++) { ?>
 			<?php if (round($rating['rating']) == $i) { $checked = 'checked="checked"'; } ?>
@@ -98,7 +53,3 @@ $ratingText = $vars['ratingTextClass'] ? 'class="' . $vars['ratingTextClass'] . 
 	<?php } ?>
 	</div>
 </div>
-
-<script type="text/javascript">
-	jQuery(fivestar(<?php echo $guid; ?>, '<?php echo $unique_id; ?>'));
-</script>

@@ -13,7 +13,7 @@ return array(
 	'elggx_fivestar:numstars' => 'The number of stars to display? ',
 	'elggx_fivestar:rating_saved' => 'Rating Saved',
 	'elggx_fivestar:settings:view_heading' => 'Views Configuration',
-	'elggx_fivestar:settings:change_cancel' => 'Allow users to change or cancel their votes? ',
+	'elggx_fivestar:settings:change_cancel' => 'Allow users to change their votes? ',
 	'elggx_fivestar:settings:yes' => 'Yes',
 	'elggx_fivestar:settings:no' => 'No',
 	'elggx_fivestar:settings:add_view' => 'Add View',

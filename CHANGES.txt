@@ -1,0 +1,84 @@
+Changelog
+=========
+
+1.10.9
+------
+
+- All JS code now moved into AMD modules,
+- Revision of plugin settings page,
+- Moved registering of simple_html_dom.php library into init funtion,
+- CSS file moved from css/basic.php to elggx_fivestar/css.php and style definitions for plugin settings page (previously defined inline) added.
+
+1.10.8
+------
+
+- Updated version 1.9.8 for Elgg 1.10.
+
+1.9.8
+-----
+
+- Updated version 1.8.8 for Elgg 1.9.
+
+1.8.8
+-----
+
+- No longer show the fivestar rating widget for entities within the widget context (This change is to get some kind of consistency with what is shown in widgets and what is not. For example, the entity menu is usually also not shown in widgets.),
+- Make the form id of the displayed rating widgets unique in case the rating widget for the same entity is displayed more than once on the same page,
+- Fix to no longer show a vertical space between the fivestar rating widget and the categories output if the Categories plugin is used (vertical space is avoided by overriding the output/categories view with a modified version),
+- Modifying code to be no longer depending on usage of private Elgg API function generate_action_token().
+
+1.10.7.1
+--------
+
+- Removal of a line containing an elgg_view() call without arguments left in the code by mistake resulting in an immense number of warnings in the server log.
+
+1.10.7
+------
+
+- Based on version 1.9.6,
+- Fix of deprecation issues occuring on Elgg 1.10 (namely changing output/confirmlink view to output/url view).
+
+1.9.6
+-----
+
+- Updated for Elgg 1.9.
+
+1.8.6
+-----
+
+- Fixed error in activate.php,
+- Updated simple_html_dom.php library.
+
+1.8.5
+-----
+
+- There're not really any changes. I only forgot to update the version number in activate.php correctly for Elggx Fivestar 1.8.4, so the version 1.8.5 does correct this - by switching directly to 1.8.5...
+
+1.8.4
+-----
+
+- Fix for Elggx Fivestar plugin to work in Elgg 1.8.14 with simple cache enabled.
+
+1.8.3
+-----
+
+- Some general code cleanup,
+- Update of simple_html_dom library to latest version,
+- Updated the default views (to use them you need to Set/Reset the default views in the Elggx Fivestar plugin configuration in the section "Administer" - "Utilities" - "Elggx Fivestar").
+
+1.8.2
+-----
+
+- French translation added (thank to emanwebdev),
+- German translation added.
+
+1.8.1
+-----
+
+- Adding/removing views via the plugin settings page should work now.
+(It was necessary to move the plugin settings to the "Administer" - "Utilities" section as the Elgg core save button added automatically on pages in the "Configure" - "Settings" section failed to keep the content of the views array. When upgrading please remove the old Elggx Fivestar folder before copying the files of the new version on your server.)
+
+1.8.0
+-----
+
+- Initial release for Elgg 1.8
