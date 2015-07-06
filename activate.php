@@ -6,6 +6,8 @@
 
 // Upgrade settings
 $oldversion = elgg_get_plugin_setting('version', 'elggx_fivestar');
+$new_version = '1.10.10';
+
 // Check if we need to run an upgrade
 if (!$oldversion) {
 	$plugin = elgg_get_plugin_from_id('elggx_fivestar');
@@ -18,8 +20,8 @@ if (!$oldversion) {
 		$plugin->save();
 	}
 	// Set new version
-	elgg_set_plugin_setting('version', '1.10.9', 'elggx_fivestar');
-} else if ($oldversion != '1.10.9') {
+	elgg_set_plugin_setting('version', $new_version, 'elggx_fivestar');
+} else if (version_compare($new_version, $old_version, '!=')) {
 	// Set new version
-	elgg_set_plugin_setting('version', '1.10.9', 'elggx_fivestar');
+	elgg_set_plugin_setting('version', $new_version, 'elggx_fivestar');
 }

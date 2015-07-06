@@ -4,6 +4,12 @@ Changelog
 1.10.9
 ------
 
+- Added support for rating of videos of the iZAP Videos plugin,
+- Fix in activate.php for the version check to work correctly.
+
+1.10.9
+------
+
 - All JS code now moved into AMD modules,
 - Revision of plugin settings page,
 - Moved registering of simple_html_dom.php library into init funtion,
