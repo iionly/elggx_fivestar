@@ -14,7 +14,7 @@
 	width: 16px;
 	height: 15px;
 	display: block;
-	background: url(<?php echo elgg_get_site_url(); ?>mod/elggx_fivestar/_graphics/ui.stars.gif) no-repeat 0 0;
+	background: url(<?= elgg_get_simplecache_url('elggx_fivestar/ui_stars.gif'); ?>) no-repeat 0 0;
 }
 .ui-stars-star a {
 	background-position: 0 -32px;

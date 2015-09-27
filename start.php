@@ -235,7 +235,7 @@ elggx_fivestar_view=object/bookmarks, tag=div, attribute=class, attribute_value=
 elggx_fivestar_view=object/page_top, tag=div, attribute=class, attribute_value=elgg-subtext, before_html=<br />
 elggx_fivestar_view=object/thewire, tag=div, attribute=class, attribute_value=elgg-subtext, before_html=<br />
 elggx_fivestar_view=group/default, tag=div, attribute=class, attribute_value=elgg-subtext, before_html=<br>
-elggx_fivestar_view=object/groupforumtopic, tag=div, attribute=class, attribute_value=elgg-subtext, before_html=<br />
+elggx_fivestar_view=object/discussion, tag=div, attribute=class, attribute_value=elgg-subtext, before_html=<br />
 elggx_fivestar_view=icon/user/default, tag=div, attribute=class, attribute_value=elgg-avatar elgg-avatar-large, before_html=<br>
 elggx_fivestar_view=object/album, tag=div, attribute=class, attribute_value=elgg-subtext, before_html=<br />
 elggx_fivestar_view=object/image, tag=div, attribute=class, attribute_value=elgg-subtext, before_html=<br />

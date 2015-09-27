@@ -1,7 +1,7 @@
-Elggx Fivestar plugin for Elgg 1.10 - 1.12
-==========================================
+Elggx Fivestar plugin for Elgg 2.X
+==================================
 
-Latest Version: 1.10.11  
+Latest Version: 2.0.0  
 Released: 2015-09-27  
 Contact: iionly@gmx.de  
 License: GNU General Public License version 2  
