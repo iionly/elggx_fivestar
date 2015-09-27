@@ -1,8 +1,14 @@
 Changelog
 =========
 
-1.10.9
-------
+1.10.11
+-------
+
+- Added support for rating of entries of the Event Calendar, News and Poll plugins,
+- composer.json added.
+
+1.10.10
+-------
 
 - Added support for rating of videos of the iZAP Videos plugin,
 - Fix in activate.php for the version check to work correctly.
