@@ -6,7 +6,7 @@
 
 // Upgrade settings
 $oldversion = elgg_get_plugin_setting('version', 'elggx_fivestar');
-$new_version = '2.0.0';
+$new_version = '2.0.1';
 
 // Check if we need to run an upgrade
 if (!$oldversion) {
@@ -21,6 +21,30 @@ if (!$oldversion) {
 	}
 }
 
+// Set defaults if not yet set
+if (!(int)elgg_get_plugin_setting('stars', 'elggx_fivestar')) {
+	elgg_set_plugin_setting('stars', '5', 'elggx_fivestar');
+}
+$change_vote = (int)elgg_get_plugin_setting('change_vote', 'elggx_fivestar');
+if ($change_vote == 0) {
+	elgg_set_plugin_setting('change_cancel', 0, 'elggx_fivestar');
+} else {
+	elgg_set_plugin_setting('change_cancel', 1, 'elggx_fivestar');
+}
+$values = elgg_get_plugin_setting('elggx_fivestar_view', 'elggx_fivestar');
+if ($values) {
+	$elggx_fivestar_view = '';
+	$values = explode("\n", $values);
+	$values = array_filter($values);
+	$values = array_slice( $values, 0);
+	if (is_array($values)) {
+		$elggx_fivestar_view = implode("\n", $values);
+	}
+	elgg_set_plugin_setting('elggx_fivestar_view', $elggx_fivestar_view, 'elggx_fivestar');
+} else {
+	elggx_fivestar_defaults();
+}
+
 // On Elgg 2.0 we have the object/discussion view instead of the object/groupforumtopic view, so we need to update
 if (version_compare('2.0.0', $old_version, '>')) {
 	$updated_elggx_fivestar_views = array();
@@ -33,8 +57,10 @@ if (version_compare('2.0.0', $old_version, '>')) {
 	}
 
 	$elggx_fivestar_view = '';
-	foreach ($updated_elggx_fivestar_views as $updated_elggx_fivestar_view) {
-		$elggx_fivestar_view .= $updated_elggx_fivestar_view . "\n";
+	$updated_elggx_fivestar_views = array_filter($updated_elggx_fivestar_views);
+	$updated_elggx_fivestar_views = array_slice( $updated_elggx_fivestar_views, 0);
+	if (is_array($updated_elggx_fivestar_views)) {
+		$elggx_fivestar_view = implode("\n", $updated_elggx_fivestar_views);
 	}
 	elgg_set_plugin_setting('elggx_fivestar_view', $elggx_fivestar_view, 'elggx_fivestar');
 }

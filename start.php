@@ -11,8 +11,6 @@ function elggx_fivestar_init() {
 	elgg_extend_view('css/elgg', 'elggx_fivestar/css');
 	elgg_extend_view('css/admin', 'elggx_fivestar/css');
 
-	elggx_fivestar_settings();
-
 	elgg_register_plugin_hook_handler('view', 'all', 'elggx_fivestar_view');
 
 	elgg_register_admin_menu_item('administer', 'elggx_fivestar', 'administer_utilities');
@@ -82,12 +80,12 @@ function elggx_fivestar_vote($guid, $vote) {
 		'annotation_owner_guid' => $annotation_owner,
 		'limit' => 1
 	))) {
-		if ($vote == 0 && (int)elgg_get_plugin_setting('change_cancel', 'elggx_fivestar')) {
+		if ($vote == 0 && (int)elgg_get_plugin_setting('change_cancel', 'elggx_fivestar', 1)) {
 			if (!elgg_trigger_plugin_hook('elggx_fivestar:cancel', 'all', array('entity' => $entity), false)) {
 				elgg_delete_annotations(array('annotation_id' => $annotation[0]->id));
 				$msg = elgg_echo('elggx_fivestar:deleted');
 			}
-		} else if ((int)elgg_get_plugin_setting('change_cancel', 'elggx_fivestar')) {
+		} else if ((int)elgg_get_plugin_setting('change_cancel', 'elggx_fivestar', 1)) {
 			update_annotation($annotation[0]->id, 'fivestar', $vote, 'integer', $annotation_owner, 2);
 			$msg = elgg_echo('elggx_fivestar:updated');
 		} else {
@@ -139,7 +137,7 @@ function elggx_fivestar_getRating($guid) {
 		$rating['rating'] = $entity->getAnnotationsAvg('fivestar');
 		$rating['votes'] = count($entity->getAnnotations((array('annotation_name' => 'fivestar', 'limit' => false))));
 
-		$modifier = 100 / (int)elgg_get_plugin_setting('stars', 'elggx_fivestar');
+		$modifier = 100 / (int)elgg_get_plugin_setting('stars', 'elggx_fivestar', 5);
 		$rating['rating'] = round($rating['rating'] / $modifier, 1);
 	}
 
@@ -208,23 +206,6 @@ function elggx_fivestar_hasVoted($guid) {
 	}
 
 	return(false);
-}
-
-/**
- * Set default settings
- *
- */
-function elggx_fivestar_settings() {
-	// Set plugin defaults
-	if (!(int)elgg_get_plugin_setting('stars', 'elggx_fivestar')) {
-		elgg_set_plugin_setting('stars', '5', 'elggx_fivestar');
-	}
-	$change_vote = (int)elgg_get_plugin_setting('change_vote', 'elggx_fivestar');
-	if ($change_vote == 0) {
-		elgg_set_plugin_setting('change_cancel', 0, 'elggx_fivestar');
-	} else {
-		elgg_set_plugin_setting('change_cancel', 1, 'elggx_fivestar');
-	}
 }
 
 function elggx_fivestar_defaults() {
