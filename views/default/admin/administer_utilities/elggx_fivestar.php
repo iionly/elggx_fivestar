@@ -6,8 +6,7 @@
 
 elgg_require_js('elggx_fivestar/elggx_fivestar_admin');
 
-$plugin = elgg_get_plugin_from_id('elggx_fivestar');
-
+$stars = elgg_get_plugin_setting('stars', 'elggx_fivestar', '5');
 $form = "<div class='mbs'>" . elgg_echo('elggx_fivestar:numstars');
 $form .= elgg_view('input/select', array(
 	'name' => 'params[stars]',
@@ -21,17 +20,18 @@ $form .= elgg_view('input/select', array(
 		'8'  => '8',
 		'9'  => '9',
 		'10' => '10'),
-	'value' => $plugin->stars
+	'value' => $stars
 ));
 $form .= "</div>";
 
+$change_vote = elgg_get_plugin_setting('change_vote', 'elggx_fivestar', '1');
 $form .= "<div class='mbl'>" . elgg_echo('elggx_fivestar:settings:change_cancel');
 $form .= elgg_view('input/select', array(
 	'name' => 'params[change_vote]',
 	'options_values' => array(
 		'1' => elgg_echo('elggx_fivestar:settings:yes'),
 		'0' => elgg_echo('elggx_fivestar:settings:no')),
-	'value' => $plugin->change_vote
+	'value' => $change_vote
 ));
 $form .= "</div>";
 

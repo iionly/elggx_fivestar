@@ -1,6 +1,12 @@
 Changelog
 =========
 
+1.10.12
+-------
+
+- Make sure no empty view lines  (and no newline at the end of view lines string) are saved when saving plugin settings,
+- Set plugin defaults in activate.php instead of doing it via start.php.
+
 1.10.11
 -------
 

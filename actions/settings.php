@@ -25,10 +25,11 @@ $elggx_fivestar_view = '';
 
 $values = get_input('elggx_fivestar_views');
 
+$values = array_filter($values);
+$values = array_slice( $values, 0);
+
 if (is_array($values)) {
-	foreach ($values as $value) {
-		$elggx_fivestar_view .= $value . "\n";
-	}
+	$elggx_fivestar_view = implode("\n", $values);
 }
 
 elgg_set_plugin_setting('elggx_fivestar_view', $elggx_fivestar_view, 'elggx_fivestar');

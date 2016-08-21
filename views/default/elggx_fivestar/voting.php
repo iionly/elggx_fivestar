@@ -9,7 +9,7 @@ if (!$guid) {
 }
 
 $rating = elggx_fivestar_getRating($guid);
-$stars = (int)elgg_get_plugin_setting('stars', 'elggx_fivestar');
+$stars = (int)elgg_get_plugin_setting('stars', 'elggx_fivestar', 5);
 
 $pps = 100 / $stars;
 
@@ -20,7 +20,7 @@ if (!elgg_is_logged_in()) {
 	$disabled = 'disabled="disabled"';
 }
 
-if (!(int)elgg_get_plugin_setting('change_cancel', 'elggx_fivestar')) {
+if (!(int)elgg_get_plugin_setting('change_cancel', 'elggx_fivestar', 1)) {
 	if (elggx_fivestar_hasVoted($guid)) {
 		$disabled = 'disabled="disabled"';
 	}
