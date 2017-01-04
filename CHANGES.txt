@@ -1,6 +1,11 @@
 Changelog
 =========
 
+2.3.1
+-----
+
+- Updated attribute_value of default Fivestar rating views to match the class names modified on Elgg 2.3 compared to previous versions of Elgg.
+
 2.0.1
 -----
 

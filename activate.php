@@ -6,7 +6,7 @@
 
 // Upgrade settings
 $oldversion = elgg_get_plugin_setting('version', 'elggx_fivestar');
-$new_version = '2.0.1';
+$new_version = '2.3.1';
 
 // Check if we need to run an upgrade
 if (!$oldversion) {
@@ -64,6 +64,78 @@ if (version_compare('2.0.0', $old_version, '>')) {
 	}
 	elgg_set_plugin_setting('elggx_fivestar_view', $elggx_fivestar_view, 'elggx_fivestar');
 }
+
+// On Elgg 2.3 the former attribute_value of "elgg-subtext" used in several default fivestar views needs to be updated to
+// "elgg-listing-summary-subtitle elgg-subtext"
+if (version_compare('2.3.1', $old_version, '>')) {
+	$updated_elggx_fivestar_views = array();
+	$lines = explode("\n", elgg_get_plugin_setting('elggx_fivestar_view', 'elggx_fivestar'));
+	foreach ($lines as $line) {
+		switch ($line) {
+			case "elggx_fivestar_view=object/blog, tag=div, attribute=class, attribute_value=elgg-subtext, before_html=<br />":
+				$line = "elggx_fivestar_view=object/blog, tag=div, attribute=class, attribute_value=elgg-listing-summary-subtitle elgg-subtext, before_html=<br />";
+				break;
+
+			case "elggx_fivestar_view=object/file, tag=div, attribute=class, attribute_value=elgg-subtext, before_html=<br />":
+				$line = "elggx_fivestar_view=object/file, tag=div, attribute=class, attribute_value=elgg-listing-summary-subtitle elgg-subtext, before_html=<br />";
+				break;
+
+			case "elggx_fivestar_view=object/bookmarks, tag=div, attribute=class, attribute_value=elgg-subtext, before_html=<br />":
+				$line = "elggx_fivestar_view=object/bookmarks, tag=div, attribute=class, attribute_value=elgg-listing-summary-subtitle elgg-subtext, before_html=<br />";
+				break;
+
+			case "elggx_fivestar_view=object/page_top, tag=div, attribute=class, attribute_value=elgg-subtext, before_html=<br />":
+				$line = "elggx_fivestar_view=object/page_top, tag=div, attribute=class, attribute_value=elgg-listing-summary-subtitle elgg-subtext, before_html=<br />";
+				break;
+
+			case "elggx_fivestar_view=object/thewire, tag=div, attribute=class, attribute_value=elgg-subtext, before_html=<br />":
+				$line = "elggx_fivestar_view=object/thewire, tag=div, attribute=class, attribute_value=elgg-listing-summary-subtitle elgg-subtext, before_html=<br />";
+				break;
+
+			case "elggx_fivestar_view=group/default, tag=div, attribute=class, attribute_value=elgg-subtext, before_html=<br>":
+				$line = "elggx_fivestar_view=groups/profile/summary, tag=div, attribute=class, attribute_value=groups-stats, before_html=<br>";
+				break;
+
+			case "elggx_fivestar_view=object/discussion, tag=div, attribute=class, attribute_value=elgg-subtext, before_html=<br />":
+				$line = "elggx_fivestar_view=object/discussion, tag=div, attribute=class, attribute_value=elgg-listing-summary-subtitle elgg-subtext, before_html=<br />";
+				break;
+
+			case "elggx_fivestar_view=object/album, tag=div, attribute=class, attribute_value=elgg-subtext, before_html=<br />":
+				$line = "elggx_fivestar_view=object/album, tag=div, attribute=class, attribute_value=elgg-listing-summary-subtitle elgg-subtext, before_html=<br />";
+				break;
+
+			case "elggx_fivestar_view=object/image, tag=div, attribute=class, attribute_value=elgg-subtext, before_html=<br />":
+				$line = "elggx_fivestar_view=object/image, tag=div, attribute=class, attribute_value=elgg-listing-summary-subtitle elgg-subtext, before_html=<br />";
+				break;
+
+			case "elggx_fivestar_view=object/izap_videos, tag=div, attribute=class, attribute_value=elgg-subtext, before_html=<br />":
+				$line = "elggx_fivestar_view=object/izap_videos, tag=div, attribute=class, attribute_value=elgg-listing-summary-subtitle elgg-subtext, before_html=<br />";
+				break;
+
+			case "elggx_fivestar_view=object/event_calendar, tag=div, attribute=class, attribute_value=elgg-subtext, before_html=<br />":
+				$line = "elggx_fivestar_view=object/event_calendar, tag=div, attribute=class, attribute_value=elgg-listing-summary-subtitle elgg-subtext, before_html=<br />";
+				break;
+
+			case "elggx_fivestar_view=object/news, tag=div, attribute=class, attribute_value=elgg-subtext, before_html=<br />":
+				$line = "elggx_fivestar_view=object/news, tag=div, attribute=class, attribute_value=elgg-listing-summary-subtitle elgg-subtext, before_html=<br />";
+				break;
+
+			case "elggx_fivestar_view=object/poll, tag=div, attribute=class, attribute_value=elgg-subtext, before_html=<br />":
+				$line = "elggx_fivestar_view=object/poll, tag=div, attribute=class, attribute_value=elgg-listing-summary-subtitle elgg-subtext, before_html=<br />";
+				break;
+		}
+		$updated_elggx_fivestar_views[] = $line;
+	}
+
+	$elggx_fivestar_view = '';
+	$updated_elggx_fivestar_views = array_filter($updated_elggx_fivestar_views);
+	$updated_elggx_fivestar_views = array_slice( $updated_elggx_fivestar_views, 0);
+	if (is_array($updated_elggx_fivestar_views)) {
+		$elggx_fivestar_view = implode("\n", $updated_elggx_fivestar_views);
+	}
+	elgg_set_plugin_setting('elggx_fivestar_view', $elggx_fivestar_view, 'elggx_fivestar');
+}
+
 
 if (version_compare($new_version, $old_version, '!=')) {
 	// Set new version

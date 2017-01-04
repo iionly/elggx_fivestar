@@ -37,7 +37,6 @@ function elggx_fivestar_view($hook, $entity_type, $returnvalue, $params) {
 	if (elgg_in_context('widgets')) {
 		return $returnvalue;
 	}
-
 	$lines = explode("\n", elgg_get_plugin_setting('elggx_fivestar_view', 'elggx_fivestar'));
 	foreach ($lines as $line) {
 		$options = array();
@@ -210,20 +209,20 @@ function elggx_fivestar_hasVoted($guid) {
 
 function elggx_fivestar_defaults() {
 
-$elggx_fivestar_view = 'elggx_fivestar_view=object/blog, tag=div, attribute=class, attribute_value=elgg-subtext, before_html=<br />
-elggx_fivestar_view=object/file, tag=div, attribute=class, attribute_value=elgg-subtext, before_html=<br />
-elggx_fivestar_view=object/bookmarks, tag=div, attribute=class, attribute_value=elgg-subtext, before_html=<br />
-elggx_fivestar_view=object/page_top, tag=div, attribute=class, attribute_value=elgg-subtext, before_html=<br />
-elggx_fivestar_view=object/thewire, tag=div, attribute=class, attribute_value=elgg-subtext, before_html=<br />
-elggx_fivestar_view=group/default, tag=div, attribute=class, attribute_value=elgg-subtext, before_html=<br>
-elggx_fivestar_view=object/discussion, tag=div, attribute=class, attribute_value=elgg-subtext, before_html=<br />
+$elggx_fivestar_view = 'elggx_fivestar_view=object/blog, tag=div, attribute=class, attribute_value=elgg-listing-summary-subtitle elgg-subtext, before_html=<br />
+elggx_fivestar_view=object/file, tag=div, attribute=class, attribute_value=elgg-listing-summary-subtitle elgg-subtext, before_html=<br />
+elggx_fivestar_view=object/bookmarks, tag=div, attribute=class, attribute_value=elgg-listing-summary-subtitle elgg-subtext, before_html=<br />
+elggx_fivestar_view=object/page_top, tag=div, attribute=class, attribute_value=elgg-listing-summary-subtitle elgg-subtext, before_html=<br />
+elggx_fivestar_view=object/thewire, tag=div, attribute=class, attribute_value=elgg-listing-summary-subtitle elgg-subtext, before_html=<br />
+elggx_fivestar_view=groups/profile/summary, tag=div, attribute=class, attribute_value=groups-stats, before_html=<br>
+elggx_fivestar_view=object/discussion, tag=div, attribute=class, attribute_value=elgg-listing-summary-subtitle elgg-subtext, before_html=<br />
 elggx_fivestar_view=icon/user/default, tag=div, attribute=class, attribute_value=elgg-avatar elgg-avatar-large, before_html=<br>
-elggx_fivestar_view=object/album, tag=div, attribute=class, attribute_value=elgg-subtext, before_html=<br />
-elggx_fivestar_view=object/image, tag=div, attribute=class, attribute_value=elgg-subtext, before_html=<br />
-elggx_fivestar_view=object/izap_videos, tag=div, attribute=class, attribute_value=elgg-subtext, before_html=<br />
-elggx_fivestar_view=object/event_calendar, tag=div, attribute=class, attribute_value=elgg-subtext, before_html=<br />
-elggx_fivestar_view=object/news, tag=div, attribute=class, attribute_value=elgg-subtext, before_html=<br />
-elggx_fivestar_view=object/poll, tag=div, attribute=class, attribute_value=elgg-subtext, before_html=<br />';
+elggx_fivestar_view=object/album, tag=div, attribute=class, attribute_value=elgg-listing-summary-subtitle elgg-subtext, before_html=<br />
+elggx_fivestar_view=object/image, tag=div, attribute=class, attribute_value=elgg-listing-summary-subtitle elgg-subtext, before_html=<br />
+elggx_fivestar_view=object/izap_videos, tag=div, attribute=class, attribute_value=elgg-listing-summary-subtitle elgg-subtext, before_html=<br />
+elggx_fivestar_view=object/event_calendar, tag=div, attribute=class, attribute_value=elgg-listing-summary-subtitle elgg-subtext, before_html=<br />
+elggx_fivestar_view=object/news, tag=div, attribute=class, attribute_value=elgg-listing-summary-subtitle elgg-subtext, before_html=<br />
+elggx_fivestar_view=object/poll, tag=div, attribute=class, attribute_value=elgg-listing-summary-subtitle elgg-subtext, before_html=<br />';
 
 elgg_set_plugin_setting('elggx_fivestar_view', $elggx_fivestar_view, 'elggx_fivestar');
 }
