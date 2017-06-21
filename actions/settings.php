@@ -14,7 +14,7 @@ foreach ($params as $k => $v) {
 	}
 }
 
-$change_vote = (int)get_input('change_vote');
+$change_vote = (int)$params['change_vote'];
 if ($change_vote == 0) {
 	elgg_set_plugin_setting('change_cancel', 0, 'elggx_fivestar');
 } else {
