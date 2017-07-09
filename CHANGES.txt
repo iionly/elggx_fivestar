@@ -1,6 +1,11 @@
 Changelog
 =========
 
+2.3.2
+-----
+
+- Correctly save "Change vote" plugin settings value (thanks to oseg for reporting the issue and providing the fix).
+
 2.3.1
 -----
 

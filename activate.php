@@ -6,7 +6,7 @@
 
 // Upgrade settings
 $oldversion = elgg_get_plugin_setting('version', 'elggx_fivestar');
-$new_version = '2.3.1';
+$new_version = '2.3.2';
 
 // Check if we need to run an upgrade
 if (!$oldversion) {
