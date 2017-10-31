@@ -170,7 +170,7 @@ function elggx_fivestar_widget($returnvalue, $params, $options) {
 
 	$match = 0;
 	foreach ($html->find($options['tag']) as $element) {
-		if ($element->$options['attribute'] == $options['attribute_value']) {
+		if ($element->{$options['attribute']} == $options['attribute_value']) {
 			$element->innertext .= $options['before_html'] . $widget . $options['after_html'];
 			$match = 1;
 			break;

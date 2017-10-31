@@ -1,6 +1,12 @@
 Changelog
 =========
 
+2.3.3
+-----
+
+- Fix for Elggx Fivestar to work also on PHP 7.x,
+- Rework Elggx Fivestar plugin settings form.
+
 2.3.2
 -----
 
