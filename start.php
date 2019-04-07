@@ -4,8 +4,7 @@ elgg_register_event_handler('init','system','elggx_fivestar_init');
 
 function elggx_fivestar_init() {
 	if (!function_exists('str_get_html')) {
-		elgg_register_library("fivestar_simple_html_dom", dirname(__FILE__) . "/lib/simple_html_dom.php");
-		elgg_load_library("fivestar_simple_html_dom");
+		require_once __DIR__ . "/lib/simple_html_dom.php";
 	}
 
 	elgg_extend_view('css/elgg', 'elggx_fivestar/css');
@@ -13,13 +12,15 @@ function elggx_fivestar_init() {
 
 	elgg_register_plugin_hook_handler('view', 'all', 'elggx_fivestar_view');
 
-	elgg_register_admin_menu_item('administer', 'elggx_fivestar', 'administer_utilities');
+	elgg_register_menu_item('page', [
+		'name' => 'elggx_fivestar',
+		'href' => "admin/administer_utilities/elggx_fivestar",
+		'text' => elgg_echo("admin:administer_utilities:elggx_fivestar"),
+		'context' => 'admin',
+		'parent_name' => 'administer_utilities',
+		'section' => 'administer'
+	]);
 
-	// Register actions
-	$base_dir = elgg_get_plugins_path() . 'elggx_fivestar/actions';
-	elgg_register_action("elggx_fivestar/rate", "$base_dir/rate.php", 'logged_in');
-	elgg_register_action("elggx_fivestar/settings", "$base_dir/settings.php", 'admin');
-	elgg_register_action("elggx_fivestar/reset", "$base_dir/reset.php", 'admin');
 }
 
 /**
