@@ -1,6 +1,12 @@
 Changelog
 =========
 
+2.3.4
+-----
+
+- Code cleanup and some rework,
+- Elggx Fivestar plugin settings can now be found at the Elgg default plugin settings section in the admin area.
+
 2.3.3
 -----
 

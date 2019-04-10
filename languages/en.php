@@ -1,6 +1,6 @@
 <?php
 
-return array(
+return [
 	'admin:administer_utilities:elggx_fivestar' => 'Elggx Fivestar',
 	'elggx_fivestar:lowerstars' => 'stars',
 	'elggx_fivestar:votes' => 'votes',
@@ -21,4 +21,5 @@ return array(
 	'elggx_fivestar:settings:save:ok' => 'Successfully saved the Fivestar plugin settings.',
 	'elggx_fivestar:settings:defaults' => 'Set / Reset default views',
 	'elggx_fivestar:settings:defaults:confirm' => 'Are you sure you want to set / reset the default views?',
-);
+	'elggx_fivestar:settings:reset_success' => 'Successfully reset to default views.',
+];

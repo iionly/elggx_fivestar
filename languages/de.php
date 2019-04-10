@@ -1,6 +1,6 @@
 <?php
 
-return array(
+return [
 	'admin:administer_utilities:elggx_fivestar' => 'Elggx Fivestar',
 	'elggx_fivestar:lowerstars' => 'Sterne',
 	'elggx_fivestar:votes' => 'Stimmen',
@@ -21,4 +21,5 @@ return array(
 	'elggx_fivestar:settings:save:ok' => 'Die Einstellungen des Fivestar-Plugins wurden gespeichert.',
 	'elggx_fivestar:settings:defaults' => 'Die Standard-Views aktivieren bzw. die Standardkonfiguration wiederherstellen',
 	'elggx_fivestar:settings:defaults:confirm' => 'Bist Du sicher, dass Du die Standard-Views aktivieren bzw. die Standardkonfiguration wiederherstellen willst?',
-);
+	'elggx_fivestar:settings:reset_success' => 'Die Standardkonfiguration wurde wiederhergestellt.',
+];

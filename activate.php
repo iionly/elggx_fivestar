@@ -6,7 +6,7 @@
 
 // Upgrade settings
 $oldversion = elgg_get_plugin_setting('version', 'elggx_fivestar');
-$new_version = '2.3.3';
+$new_version = '2.3.4';
 
 // Check if we need to run an upgrade
 if (!$oldversion) {
@@ -25,11 +25,11 @@ if (!$oldversion) {
 if (!(int)elgg_get_plugin_setting('stars', 'elggx_fivestar')) {
 	elgg_set_plugin_setting('stars', '5', 'elggx_fivestar');
 }
-$change_vote = (int)elgg_get_plugin_setting('change_vote', 'elggx_fivestar');
+$change_vote = (int) elgg_get_plugin_setting('change_vote', 'elggx_fivestar');
 if ($change_vote == 0) {
-	elgg_set_plugin_setting('change_cancel', 0, 'elggx_fivestar');
+	elgg_set_plugin_setting('change_cancel', '0', 'elggx_fivestar');
 } else {
-	elgg_set_plugin_setting('change_cancel', 1, 'elggx_fivestar');
+	elgg_set_plugin_setting('change_cancel', '1', 'elggx_fivestar');
 }
 $values = elgg_get_plugin_setting('elggx_fivestar_view', 'elggx_fivestar');
 if ($values) {

@@ -3,7 +3,7 @@
  * Elggx Fivestar French language file
  */
 
-return array(
+return [
 	'admin:administer_utilities:elggx_fivestar' => 'Elggx Fivestar',
 	'elggx_fivestar:lowerstars' => 'étoiles',
 	'elggx_fivestar:votes' => 'votes',
@@ -24,4 +24,4 @@ return array(
 	'elggx_fivestar:settings:save:ok' => 'La configuration du plugin Fivestar a été enregistrée avec succès.',
 	'elggx_fivestar:settings:defaults' => 'Définir/Réinitialiser les vues par défaut',
 	'elggx_fivestar:settings:defaults:confirm' => 'Etes-vous sûr de vouloir définir / réinitialiser les vues par défaut?',
-);
+];
