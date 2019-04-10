@@ -1,6 +1,13 @@
 Changelog
 =========
 
+3.0.0
+-----
+
+- Requires Elgg 3.0 at minimum,
+- Updated for Elgg 3,
+- Updates in Fivestar view codes necessary: to get the rating widget displayed nicely on Elgg 3 the default views had to be adjusted. Please set/reset the views on the Fivestar plugin settings page to get the updated code taking effect. If you have added any custom views yourself you probably need to alter them a bit, too (and don't forget to note any custom views' code before resetting the views or your changes are lost).
+
 2.3.4
 -----
 

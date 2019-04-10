@@ -5,16 +5,16 @@
  * If a matching view config is found then the fivestar widget is
  * called.
  *
- * @param  integer  $hook The hook being called.
- * @param  integer  $type The type of entity you're being called on.
- * @param  string   $return The return value.
- * @param  array    $params An array of parameters for the current view
- * @return string   The html
  */
-function elggx_fivestar_view($hook, $entity_type, $returnvalue, $params) {
+function elggx_fivestar_view(\Elgg\Hook $hook) {
+	$returnvalue = $hook->getValue();
+
 	if (elgg_in_context('widgets')) {
 		return $returnvalue;
 	}
+
+	$params = $hook->getParams();
+
 	$lines = explode("\n", elgg_get_plugin_setting('elggx_fivestar_view', 'elggx_fivestar'));
 	foreach ($lines as $line) {
 		$options = [];

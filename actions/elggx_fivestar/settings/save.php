@@ -7,15 +7,15 @@
 
 $plugin = elgg_get_plugin_from_id('elggx_fivestar');
 
+$plugin_name = $plugin->getDisplayName();
+
 $result = false;
 
 $params = (array) get_input('params');
 foreach ($params as $k => $v) {
 	$result = $plugin->setSetting($k, $v);
 	if (!$result) {
-		register_error(elgg_echo('plugins:settings:save:fail', ['elggx_fivestar']));
-		forward(REFERER);
-		exit;
+		return elgg_error_response(elgg_echo('plugins:settings:save:fail', [$plugin_name]));
 	}
 }
 
@@ -28,8 +28,7 @@ if ($change_vote == 0) {
 	$result = $plugin->setSetting('change_cancel', '1');
 }
 if (!$result) {
-	register_error(elgg_echo('plugins:settings:save:fail', ['elggx_fivestar']));
-	forward(REFERER);
+	return elgg_error_response(elgg_echo('plugins:settings:save:fail', [$plugin_name]));
 }
 
 $elggx_fivestar_view = '';
@@ -44,9 +43,7 @@ if (is_array($values)) {
 	$result = $plugin->setSetting('elggx_fivestar_view', $elggx_fivestar_view);
 }
 if (!$result) {
-	register_error(elgg_echo('plugins:settings:save:fail', ['elggx_fivestar']));
-	forward(REFERER);
+	return elgg_error_response(elgg_echo('plugins:settings:save:fail', [$plugin_name]));
 }
 
-system_message(elgg_echo('elggx_fivestar:settings:save:ok'));
-forward(REFERER);
+return elgg_ok_response('', elgg_echo('elggx_fivestar:settings:save:ok', [$plugin_name]));

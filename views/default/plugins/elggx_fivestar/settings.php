@@ -6,7 +6,9 @@
 
 elgg_require_js('elggx_fivestar/elggx_fivestar_admin');
 
-$stars = elgg_get_plugin_setting('stars', 'elggx_fivestar', '5');
+/* @var $plugin ElggPlugin */
+$plugin = elgg_extract('entity', $vars);
+
 echo elgg_view_field([
 	'#type' => 'select',
 	'name' => 'params[stars]',
@@ -22,11 +24,10 @@ echo elgg_view_field([
 		'9'  => '9',
 		'10' => '10',
 	],
-	'value' => $stars,
+	'value' => $plugin->stars,
 	'#label' => elgg_echo('elggx_fivestar:numstars'),
 ]);
 
-$change_vote = elgg_get_plugin_setting('change_vote', 'elggx_fivestar', '1');
 echo elgg_view_field([
 	'#type' => 'select',
 	'name' => 'params[change_vote]',
@@ -35,7 +36,7 @@ echo elgg_view_field([
 		'1' => elgg_echo('elggx_fivestar:settings:yes'),
 		'0' => elgg_echo('elggx_fivestar:settings:no'),
 	],
-	'value' => $change_vote,
+	'value' => $plugin->change_vote,
 	'#label' => elgg_echo('elggx_fivestar:settings:change_cancel'),
 ]);
 
@@ -53,7 +54,7 @@ $content .= "</div>";
 $content .= "<div class='mts mbs'>";
 
 $x = 1;
-$lines = explode("\n", elgg_get_plugin_setting('elggx_fivestar_view', 'elggx_fivestar'));
+$lines = explode("\n", $plugin->elggx_fivestar_view);
 
 foreach ($lines as $line) {
 	$options = [];
