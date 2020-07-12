@@ -53,12 +53,10 @@ function elggx_fivestar_vote($guid, $vote) {
  */
 function elggx_fivestar_setRating($entity) {
 
-	$access = elgg_set_ignore_access(true);
-
-	$rating = elggx_fivestar_getRating($entity->guid);
-	$entity->elggx_fivestar_rating = $rating['rating'];
-
-	elgg_set_ignore_access($access);
+	elgg_call(ELGG_IGNORE_ACCESS, function() use ($entity) {
+		$rating = elggx_fivestar_getRating($entity->guid);
+		$entity->elggx_fivestar_rating = $rating['rating'];
+	});
 
 	return;
 }
