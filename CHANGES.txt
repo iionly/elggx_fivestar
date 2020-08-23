@@ -1,6 +1,11 @@
 Changelog
 =========
 
+2.3.5
+-----
+
+- Updated simple_html_dom.php library to version 1.9.1 (fixes a PHP warning previously occuring on PHP 7.3/7.4).
+
 2.3.4
 -----
 
