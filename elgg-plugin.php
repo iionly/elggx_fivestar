@@ -37,13 +37,4 @@ return [
 			'elggx_fivestar/css' => [],
 		],
 	],
-// 	'hooks' => [
-// 		'register' => [
-// 			'view' => [
-// 				'all' => [
-// 					'elggx_fivestar_view' => [],
-// 				],
-// 			],
-// 		],
-// 	],
 ];

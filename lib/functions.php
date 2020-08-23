@@ -27,7 +27,8 @@ function elggx_fivestar_vote($guid, $vote) {
 				$msg = elgg_echo('elggx_fivestar:deleted');
 			}
 		} else if ((int) elgg_get_plugin_setting('change_cancel', 'elggx_fivestar', '1')) {
-			update_annotation($annotation[0]->id, 'fivestar', $vote, 'integer', $annotation_owner, 2);
+			$annotation[0]->value = $vote;
+			$annotation[0]->save();
 			$msg = elgg_echo('elggx_fivestar:updated');
 		} else {
 			$msg = elgg_echo('elggx_fivestar:nodups');
